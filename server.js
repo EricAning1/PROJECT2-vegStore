@@ -55,7 +55,6 @@ app.put('/vegetables/buy/:id', (req, res) => {
     req.params.id,
 
     (err, foundVegetables) => {
-      console.log(updatedVegetables);
       let foundItem = foundVegetables;
       foundItem.inventory = foundItem.inventory - 1;
       Vegetables.findByIdAndUpdate(

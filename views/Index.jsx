@@ -5,15 +5,6 @@ const myStyle = {
   color: '#ffffff',
   backgroundColor: '#000000',
 };
-const headerStyle = {
-  color: 'black',
-  backgroundColor: '#AF929D',
-  height: '5vh',
-  width: '100vw',
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  alignItems: 'center',
-};
 
 const bodyStyle = {
   display: 'grid',
@@ -34,7 +25,7 @@ class Index extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <DefaultLayout style={headerStyle} title={'Vegetables Home'}>
+      <DefaultLayout title={'Vegetables Home'}>
         <ul style={bodyStyle}>
           {this.props.vegetables.map((vegetables, i) => {
             return (

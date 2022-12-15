@@ -16,11 +16,25 @@ class Edit extends React.Component {
             defaultValue={this.props.vegetables.name}
           />
           <br />
+          Inventory:
+          <input
+            type='number'
+            name='inventory'
+            defaultValue={this.props.vegetables.inventory}
+          />
+          <br />
           Image:
           <input
             type='text'
             name='img'
             defaultValue={this.props.vegetables.img}
+          />
+          <br />
+          Price:
+          <input
+            type='text'
+            name='price'
+            defaultValue={this.props.vegetables.price}
           />
           <br />
           <input type='submit' value='Submit Changes' />

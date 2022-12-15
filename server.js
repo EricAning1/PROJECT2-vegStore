@@ -4,6 +4,7 @@ const app = express();
 const methodOverride = require('method-override');
 const port = 3000;
 const mongoose = require('mongoose');
+const { findByIdAndUpdate } = require('./models/vegetables');
 const Vegetables = require('./models/vegetables');
 
 app.use(methodOverride('_method'));
@@ -47,6 +48,25 @@ app.delete('/vegetables/:id', (req, res) => {
   Vegetables.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/vegetables'); //redirect back to vegetables index
   });
+});
+
+app.put('/vegetables/buy/:id', (req, res) => {
+  Vegetables.findById(
+    req.params.id,
+
+    (err, foundVegetables) => {
+      console.log(updatedVegetables);
+      let foundItem = foundVegetables;
+      foundItem.inventory = foundItem.inventory - 1;
+      Vegetables.findByIdAndUpdate(
+        req.params.id,
+        foundItem,
+        (err, foundVegetables) => {
+          res.redirect(`/vegetables/${req.params.id}`);
+        }
+      );
+    }
+  );
 });
 
 app.put('/vegetables/:id', (req, res) => {

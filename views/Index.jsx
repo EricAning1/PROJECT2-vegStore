@@ -5,6 +5,24 @@ const myStyle = {
   color: '#ffffff',
   backgroundColor: '#000000',
 };
+const headerStyle = {
+  color: 'black',
+  backgroundColor: '#AF929D',
+  height: '5vh',
+  width: '100vw',
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
+};
+
+const bodyStyle = {
+  display: 'grid',
+  gridTemplateAreas: "'header' 'content' 'footer'",
+  gridTemplateRows: 'repeat(3, 1fr)',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '50px',
+  backgroundColor: '#9fd3c7',
+};
 
 const style = {
   textDecoration: 'none',
@@ -16,23 +34,17 @@ class Index extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <DefaultLayout title={'Vegetables Index Page!'}>
-        <ul>
+      <DefaultLayout style={headerStyle} title={'Vegetables Home'}>
+        <ul style={bodyStyle}>
           {this.props.vegetables.map((vegetables, i) => {
             return (
               <li>
                 <a style={style} href={`/vegetables/${vegetables.id}`}>
-                  {vegetables.name}
+                  {vegetables.name[0].toUpperCase() + vegetables.name.slice(1)}
+                  <br />
+                  <img src={vegetables.img}></img>
                 </a>
                 <br />
-                <a href={`/vegetables/${vegetables._id}/edit`}>EDIT</a>
-                <br />
-                <form
-                  action={`/vegetables/${vegetables._id}?_method=DELETE`}
-                  method='POST'
-                >
-                  <input type='submit' value='DELETE' />
-                </form>
               </li>
             );
           })}

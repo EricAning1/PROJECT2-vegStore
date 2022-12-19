@@ -4,8 +4,8 @@ const app = express();
 const methodOverride = require('method-override');
 const port = 3000;
 const mongoose = require('mongoose');
-const { findByIdAndUpdate } = require('./models/vegetables');
 const Vegetables = require('./models/vegetables');
+app.use(express.static('public'));
 
 app.use(methodOverride('_method'));
 app.use((req, res, next) => {
@@ -30,26 +30,31 @@ mongoose.connection.once('open', () => {
 mongoose.set('strictQuery', true);
 const db = mongoose.connection;
 
+//HOME
 app.get('/', (req, res) => {
-  res.send('Welcome to My Vegetable Store!');
+  res.render('Home');
 });
 
+//INDEX ROUTE
 app.get('/vegetables', (req, res) => {
   Vegetables.find({}, (err, vegetableList) => {
     res.render('Index', { vegetables: vegetableList });
   });
 });
 
+//NEW ROUTE
 app.get('/vegetables/new', (req, res) => {
   res.render('New');
 });
 
+//DELETE ROUTE
 app.delete('/vegetables/:id', (req, res) => {
   Vegetables.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/vegetables'); //redirect back to vegetables index
   });
 });
 
+//UPDATE QUANTITY REMAINING WHEN BUY BUTTON IS CLICKED
 app.put('/vegetables/buy/:id', (req, res) => {
   Vegetables.findById(
     req.params.id,
@@ -68,6 +73,7 @@ app.put('/vegetables/buy/:id', (req, res) => {
   );
 });
 
+//UPDATE ROUTE
 app.put('/vegetables/:id', (req, res) => {
   Vegetables.findByIdAndUpdate(
     req.params.id,
@@ -79,12 +85,14 @@ app.put('/vegetables/:id', (req, res) => {
   );
 });
 
+//CREATE ROUTE
 app.post('/vegetables', (req, res) => {
   Vegetables.create(req.body, (err, createdVegetables) => {
     res.redirect('/vegetables');
   });
 });
 
+//EDIT ROUTE
 app.get('/vegetables/:id/edit', (req, res) => {
   Vegetables.findById(req.params.id, (err, foundVegetables) => {
     //find the vegetables
@@ -98,6 +106,7 @@ app.get('/vegetables/:id/edit', (req, res) => {
   });
 });
 
+//SHOW ROUTE
 app.get('/vegetables/:id', (req, res) => {
   Vegetables.findById(req.params.id, (err, foundVegetables) => {
     res.render('Show', { vegetables: foundVegetables });

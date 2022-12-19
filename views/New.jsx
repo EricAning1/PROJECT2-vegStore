@@ -3,8 +3,18 @@ const React = require('react');
 class New extends React.Component {
   render() {
     return (
-      <div>
-        <h1>New Vegetables</h1>
+      <div className='container'>
+        <nav>
+          <a className='home' href='/'>
+            HOME
+          </a>
+          <a className='index' href='/vegetables'>
+            RETURN TO VEGETABLES
+          </a>
+        </nav>
+
+        <link rel='stylesheet' type='text/css' href='../new.css' />
+        <h2>NEW VEGETABLES</h2>
         <form action='/vegetables' method='POST'>
           Name: <input type='text' name='name' />
           <br />
@@ -14,7 +24,12 @@ class New extends React.Component {
           <br />
           Price: <input type='string' name='price' />
           <br />
-          <input type='submit' name='' value='Create Vegetables' />
+          <input
+            className='create'
+            type='submit'
+            name=''
+            value='Create Vegetables'
+          />
         </form>
       </div>
     );

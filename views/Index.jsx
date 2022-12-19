@@ -1,51 +1,39 @@
 const React = require('react');
 const DefaultLayout = require('./Default.jsx');
 
-const myStyle = {
-  color: '#ffffff',
-  backgroundColor: '#000000',
-};
-
-const bodyStyle = {
-  display: 'grid',
-  gridTemplateAreas: "'header' 'content' 'footer'",
-  gridTemplateRows: 'repeat(3, 1fr)',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: '50px',
-  backgroundColor: '#9fd3c7',
-};
-
-const style = {
-  textDecoration: 'none',
-  lineHeight: '30px',
-  fontWeight: 'bold',
-};
-
 class Index extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <DefaultLayout title={'Vegetables Home'}>
-        <ul style={bodyStyle}>
-          {this.props.vegetables.map((vegetables, i) => {
-            return (
-              <li>
-                <a style={style} href={`/vegetables/${vegetables.id}`}>
-                  {vegetables.name[0].toUpperCase() + vegetables.name.slice(1)}
-                  <br />
-                  <img src={vegetables.img}></img>
-                </a>
-                <br />
-              </li>
-            );
-          })}
-        </ul>
+      <div className='body'>
         <nav>
-          <a style={style} href='/vegetables/new'>
-            Create A New Vegetable
-          </a>
+          <a href='/'>HOME</a>
+
+          <a href='/vegetables/new'>ADD NEW VEGETABLES</a>
         </nav>
-      </DefaultLayout>
+
+        <DefaultLayout title={'SHOP'}>
+          <link rel='stylesheet' type='text/css' href='../index.css' />
+          <ul className='items'>
+            {this.props.vegetables.map((vegetables, i) => {
+              return (
+                <li>
+                  <div className='index'>
+                    <a href={`/vegetables/${vegetables.id}`}>
+                      {vegetables.name[0].toUpperCase() +
+                        vegetables.name.slice(1)}
+                      <br />
+                      <img src={vegetables.img}></img>
+                    </a>
+                  </div>
+                  <br />
+                  <p>{vegetables.price} / lb</p>
+                </li>
+              );
+            })}
+          </ul>
+        </DefaultLayout>
+      </div>
     );
   }
 }

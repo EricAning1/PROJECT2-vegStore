@@ -21,7 +21,7 @@ This is my second project at the Software Engineering Bootcamp at Per Scholas. I
 ## `App Mechanics`
 
 The root route `http://localhost:3000/` takes you to the Home Page
-![home]("C:\Users\E7440-i7\Desktop\pix\homePage.PNG")
+<img width="943" alt="homePage" src="https://user-images.githubusercontent.com/105817567/210820185-31428c51-91fd-4c77-be07-b72000c00200.PNG">
 
 - Click on the `GET SOME VETABLES` button to go to the Index Page (The Shop)
 

@@ -38,7 +38,7 @@ You can restock on the Edit Page
 
 #### Click on the link below for my YouTube video further explaining how the app works
 
-[YouTube] (https://youtu.be/wge7QsaXkxw)
+YouTube (https://youtu.be/wge7QsaXkxw)
 
 ## `Acknowledgements`
 

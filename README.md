@@ -21,7 +21,7 @@ This is my second project at the Software Engineering Bootcamp at Per Scholas. I
 ## `App Mechanics`
 
 The root route `http://localhost:3000/` takes you to the Home Page
-![home](homePage.PNG)
+![home]("C:\Users\E7440-i7\Desktop\pix\homePage.PNG")
 
 - Click on the `GET SOME VETABLES` button to go to the Index Page (The Shop)
 
@@ -39,7 +39,7 @@ You can restock on the Edit Page
 
 #### Click on the link below for my YouTube video further explaining how the app works
 
-![YouTube](https://youtu.be/wge7QsaXkxw)
+https://youtu.be/wge7QsaXkxw
 
 ## `Acknowledgements`
 

@@ -28,6 +28,7 @@ The root route `http://localhost:3000/` takes you to the Home Page
 On the Index Page, there is a display of all vegetables in stock
 
 - Clicking on any vegetable takes you to its Show Page
+  <img width="936" alt="IndexPage" src="https://user-images.githubusercontent.com/105817567/210902898-e4bb3b77-b21b-4c34-a761-5398b7b04f43.PNG">
 
 On the Show Page, you have access to buy, edit, delete and restock
 
